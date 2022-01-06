@@ -142,6 +142,10 @@ SpriteAnimOAMData:
 	dbw $08, .OAMData_GameFreakLogo4_11        ; SPRITE_ANIM_OAMSET_GAMEFREAK_LOGO_9
 	dbw $04, .OAMData_GameFreakLogo4_11        ; SPRITE_ANIM_OAMSET_GAMEFREAK_LOGO_10
 	dbw $00, .OAMData_GameFreakLogo4_11        ; SPRITE_ANIM_OAMSET_GAMEFREAK_LOGO_11
+	dbw $00, .OAMData_GreenWalk                ; SPRITE_ANIM_OAMSET_GREEN_WALK_1
+	dbw $04, .OAMData_GreenWalk                ; SPRITE_ANIM_OAMSET_GREEN_WALK_2
+	dbw $00, .OAMData_MagnetTrainGreen         ; SPRITE_ANIM_OAMSET_MAGNET_TRAIN_GREEN_1
+	dbw $04, .OAMData_MagnetTrainGreen         ; SPRITE_ANIM_OAMSET_MAGNET_TRAIN_GREEN_2
 	assert_table_length NUM_SPRITE_ANIM_OAMSETS
 
 .OAMData_1x1_Palette0:
@@ -1104,27 +1108,42 @@ SpriteAnimOAMData:
 
 .OAMData_GameFreakLogo4_11:
 	db 24
-	dbsprite -2, -5,  4,  0, $00, 1
-	dbsprite -1, -5,  4,  0, $01, 1
-	dbsprite  0, -5,  4,  0, $02, 1
-	dbsprite  1, -5,  4,  0, $03, 1
-	dbsprite -2, -4,  4,  0, $10, 1
-	dbsprite -1, -4,  4,  0, $11, 1
-	dbsprite  0, -4,  4,  0, $12, 1
-	dbsprite  1, -4,  4,  0, $13, 1
-	dbsprite -2, -3,  4,  0, $20, 1
-	dbsprite -1, -3,  4,  0, $21, 1
-	dbsprite  0, -3,  4,  0, $22, 1
-	dbsprite  1, -3,  4,  0, $23, 1
-	dbsprite -2, -2,  4,  0, $30, 1
-	dbsprite -1, -2,  4,  0, $31, 1
-	dbsprite  0, -2,  4,  0, $32, 1
-	dbsprite  1, -2,  4,  0, $33, 1
-	dbsprite -2, -1,  4,  0, $40, 1
-	dbsprite -1, -1,  4,  0, $41, 1
-	dbsprite  0, -1,  4,  0, $42, 1
-	dbsprite  1, -1,  4,  0, $43, 1
-	dbsprite -2,  0,  4,  0, $50, 1
-	dbsprite -1,  0,  4,  0, $51, 1
-	dbsprite  0,  0,  4,  0, $52, 1
-	dbsprite  1,  0,  4,  0, $53, 1
+	dsprite -5,  0, -2,  4, $00, 1
+	dsprite -5,  0, -1,  4, $01, 1
+	dsprite -5,  0,  0,  4, $02, 1
+	dsprite -5,  0,  1,  4, $03, 1
+	dsprite -4,  0, -2,  4, $10, 1
+	dsprite -4,  0, -1,  4, $11, 1
+	dsprite -4,  0,  0,  4, $12, 1
+	dsprite -4,  0,  1,  4, $13, 1
+	dsprite -3,  0, -2,  4, $20, 1
+	dsprite -3,  0, -1,  4, $21, 1
+	dsprite -3,  0,  0,  4, $22, 1
+	dsprite -3,  0,  1,  4, $23, 1
+	dsprite -2,  0, -2,  4, $30, 1
+	dsprite -2,  0, -1,  4, $31, 1
+	dsprite -2,  0,  0,  4, $32, 1
+	dsprite -2,  0,  1,  4, $33, 1
+	dsprite -1,  0, -2,  4, $40, 1
+	dsprite -1,  0, -1,  4, $41, 1
+	dsprite -1,  0,  0,  4, $42, 1
+	dsprite -1,  0,  1,  4, $43, 1
+	dsprite  0,  0, -2,  4, $50, 1
+	dsprite  0,  0, -1,  4, $51, 1
+	dsprite  0,  0,  0,  4, $52, 1
+	dsprite  0,  0,  1,  4, $53, 1
+
+.OAMData_GreenWalk:
+	db 4
+	dsprite -1,  0, -1,  0, $00, PAL_OW_GREEN
+	dsprite -1,  0,  0,  0, $01, PAL_OW_GREEN
+	dsprite  0,  0, -1,  0, $02, PAL_OW_GREEN
+	dsprite  0,  0,  0,  0, $03, PAL_OW_GREEN
+
+.OAMData_MagnetTrainGreen:
+	db 4
+	dsprite -1,  0, -1,  0, $00, PAL_OW_GREEN | PRIORITY
+	dsprite -1,  0,  0,  0, $01, PAL_OW_GREEN | PRIORITY
+	dsprite  0,  0, -1,  0, $02, PAL_OW_GREEN | PRIORITY
+	dsprite  0,  0,  0,  0, $03, PAL_OW_GREEN | PRIORITY
+

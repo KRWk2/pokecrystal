@@ -104,8 +104,9 @@
 	const SPRITE_ENTEI ; 64
 	const SPRITE_RAIKOU ; 65
 	const SPRITE_STANDING_YOUNGSTER ; 66
+	const SPRITE_ENBY ; 67
+	const SPRITE_ENBY_BIKE ; 68
 NUM_OVERWORLD_SPRITES EQU const_value - 1
-
 ; SpriteMons indexes (see data/sprites/sprite_mons.asm)
 	const_next $80
 SPRITE_POKEMON EQU const_value

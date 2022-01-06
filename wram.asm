@@ -2835,10 +2835,10 @@ wMapStatusEnd::
 	ds 2
 
 wCrystalData::
-wPlayerGender::
-; bit 0:
-;	0 male
-;	1 female
+wPlayerGender:: ; d472
+; 0 male
+; 1 female
+; 2 enby
 	db
 wd473:: ds 1
 wd474:: ds 1
