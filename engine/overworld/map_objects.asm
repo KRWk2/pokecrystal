@@ -40,7 +40,7 @@ CheckObjectStillVisible:
 	add hl, bc
 ;	res OBJ_FLAGS2_6, [hl]
 	res 6, [hl]
-	ld a, [hMapObjectIndexBuffer]
+	ld a, [hMapObjectIndex]
 	and a
 	jr nz, .notPlayer
 ; hardcode for crossing over connections
@@ -2312,7 +2312,7 @@ UpdateRespawnedObjectFrozen:
 	call CheckObjectOnScreen
 	jr c, SetFacing_Standing
 	call HandleFrozenObjectAction ; no need to farcall
-	call Function4440
+;	call Function4440
 	xor a
 	ret
 
@@ -2559,7 +2559,7 @@ SpawnInCustomFacing:
 	and PLAYERSPRITESETUP_FACING_MASK
 	add a
 	add a
-	jr _ContinueSpawnFacing
+	jr ContinueSpawnFacing
 
 SpawnInFacingDown:
 ;	ld a, DOWN
