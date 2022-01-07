@@ -33,7 +33,7 @@ KRIS EQU __trainer_class__
 	trainerclass WHITNEY ; 2
 	const WHITNEY1
 
-CHRYS EQU __enum__
+CHRYS EQU __trainer_class__
 	trainerclass BUGSY ; 3
 	const BUGSY1
 
