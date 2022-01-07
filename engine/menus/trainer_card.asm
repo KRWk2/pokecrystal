@@ -60,8 +60,8 @@ TrainerCard:
 
 	call TrainerCard_PrintTopHalfOfCard
 
-	hlcoord 0, 8
-	ld d, 6
+	hlcoord 0, 10 ; um?
+	ld d, 4
 	call TrainerCard_InitBorder
 
 	call EnableLCD
@@ -103,9 +103,13 @@ TrainerCard_Quit:
 
 TrainerCard_Page1_LoadGFX:
 	call ClearSprites
-	hlcoord 0, 8
-	ld d, 6
+	hlcoord 0, 10 ; Printing the box?
+	ld d, 4
 	call TrainerCard_InitBorder
+	hlcoord 0, 0 ; Printing the box?
+	ld d, 7
+	call TrainerCard_InitBorder
+	call TrainerCard_PrintTopHalfOfCard
 	call WaitBGMap
 	ld de, CardStatusGFX
 	ld hl, vTiles2 tile $29
@@ -138,8 +142,8 @@ TrainerCard_Page1_Joypad:
 
 TrainerCard_Page2_LoadGFX:
 	call ClearSprites
-	hlcoord 0, 8
-	ld d, 6
+	hlcoord 0, 9
+	ld d, 5
 	call TrainerCard_InitBorder
 	call WaitBGMap
 	ld de, LeaderGFX
@@ -186,8 +190,8 @@ TrainerCard_Page2_Joypad:
 
 TrainerCard_Page3_LoadGFX:
 	call ClearSprites
-	hlcoord 0, 8
-	ld d, 6
+	hlcoord 0, 9
+	ld d, 5
 	call TrainerCard_InitBorder
 	call WaitBGMap
 	ld de, LeaderGFX2
@@ -226,9 +230,9 @@ TrainerCard_Page3_Joypad:
 
 TrainerCard_PrintTopHalfOfCard:
 	hlcoord 0, 0
-	ld d, 5
+	ld d, 7
 	call TrainerCard_InitBorder
-	hlcoord 2, 2
+	hlcoord 2, 1
 	ld de, .Name_Money
 	call PlaceString
 	hlcoord 2, 4
@@ -237,10 +241,32 @@ TrainerCard_PrintTopHalfOfCard:
 	hlcoord 7, 2
 	ld de, wPlayerName
 	call PlaceString
-	hlcoord 5, 4
+	hlcoord 9, 4
 	ld de, wPlayerID
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
 	call PrintNum
+; Display Gender
+	hlcoord 2, 8
+	ld de, .GenderString
+	call PlaceString
+	hlcoord 9, 8
+	ld a, [wPlayerGender]
+	and a
+	jr z, .male
+	dec a
+	jr z, .female
+	ld de, .EnbySym
+	jr .done
+	
+.male 
+	ld de, .MaleSym
+	jr .done
+
+.female
+	ld de, .FemaleSym
+	; fallthrough
+.done
+	call PlaceString
 	hlcoord 7, 6
 	ld de, wMoney
 	lb bc, PRINTNUM_MONEY | 3, 6
@@ -256,9 +282,9 @@ TrainerCard_PrintTopHalfOfCard:
 	ret
 
 .Name_Money:
-	db   "NAME/"
+	db   "Name/"
 	next ""
-	next "MONEY@"
+	next "Money/@"
 
 .ID_No:
 	db $27, $28, -1 ; ID NO
@@ -266,47 +292,56 @@ TrainerCard_PrintTopHalfOfCard:
 .HorizontalDivider:
 	db $25, $25, $25, $25, $25, $25, $25, $25, $25, $25, $25, $25, $26, -1 ; ____________>
 
+.MaleSym:
+	db "♂@"
+
+.FemaleSym:
+	db "♀@"
+	
+.EnbySym:
+	db "<ENBY>@"
+
+.GenderString:
+	db "Gender@"
+
 TrainerCard_Page1_PrintDexCaught_GameTime:
-	hlcoord 2, 10
+	hlcoord 2, 12
 	ld de, .Dex_PlayTime
 	call PlaceString
-	hlcoord 10, 15
+	hlcoord 10, 16
 	ld de, .Badges
 	call PlaceString
 	ld hl, wPokedexCaught
 	ld b, wEndPokedexCaught - wPokedexCaught
 	call CountSetBits
 	ld de, wNumSetBits
-	hlcoord 15, 10
+	hlcoord 15, 12
 	lb bc, 1, 3
 	call PrintNum
 	call TrainerCard_Page1_PrintGameTime
-	hlcoord 2, 8
+	hlcoord 2, 10
 	ld de, .StatusTilemap
 	call TrainerCardSetup_PlaceTilemapString
 	ld a, [wStatusFlags]
 	bit STATUSFLAGS_POKEDEX_F, a
 	ret nz
-	hlcoord 1, 9
-	lb bc, 2, 17
-	call ClearBox
 	ret
 
 .Dex_PlayTime:
-	db   "#DEX"
-	next "PLAY TIME@"
+	db   "#Dex"
+	next "Play time@"
 
 .Unused: ; unreferenced
 	db "@"
 
 .Badges:
-	db "  BADGES▶@"
+	db "  Badges▶@"
 
 .StatusTilemap:
 	db $29, $2a, $2b, $2c, $2d, -1
 
 TrainerCard_Page2_3_InitObjectsAndStrings:
-	hlcoord 2, 8
+	hlcoord 2, 9
 	ld de, .BadgesTilemap
 	call TrainerCardSetup_PlaceTilemapString
 	hlcoord 2, 10
@@ -442,7 +477,7 @@ TrainerCard_Page2_3_PlaceLeadersFaces:
 	ret
 
 TrainerCard_Page1_PrintGameTime:
-	hlcoord 11, 12
+	hlcoord 11, 14
 	ld de, wGameTimeHours
 	lb bc, 2, 4
 	call PrintNum
@@ -453,7 +488,7 @@ TrainerCard_Page1_PrintGameTime:
 	ldh a, [hVBlankCounter]
 	and $1f
 	ret nz
-	hlcoord 15, 12
+	hlcoord 15, 14
 	ld a, [hl]
 	xor " " ^ $2e ; alternate between space and small colon ($2e) tiles
 	ld [hl], a
