@@ -145,10 +145,10 @@ GetCardPic:
 	ld bc, $23 tiles
 	ld a, BANK(ChrisCardPic) ; aka BANK(KrisCardPic)
 	call FarCopyBytes
-	ld hl, TrainerCardGFX
+	ld hl, CardGFX
 	ld de, vTiles2 tile $23
 	ld bc, 6 tiles
-	ld a, BANK(TrainerCardGFX)
+	ld a, BANK(CardGFX)
 	call FarCopyBytes
 	ret
 

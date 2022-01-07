@@ -649,7 +649,7 @@ _CGB_TrainerCard:
 
 
 	; fill screen with gender-based palette for the card border
-	hlcoord 0, 0, wAttrMap
+	hlcoord 0, 0, wAttrmap
 	
 	
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
@@ -690,7 +690,7 @@ _CGB_TrainerCard:
 ;	ld [hl], $1
 ;	hlcoord 2, 11, wAttrmap
 
-	hlcoord 2, 11, wAttrMap
+	hlcoord 2, 11, wAttrmap
 	
 	lb bc, 2, 4
 	ld a, $1 ; falkner
@@ -727,7 +727,7 @@ _CGB_TrainerCard:
 ;	jr z, .got_gender3
 ;	hlcoord 14, 14, wAttrmap
 
-	hlcoord 14, 14, wAttrMap
+	hlcoord 14, 14, wAttrmap
 	
 	lb bc, 2, 4
 	ld a, $1 ; clair
@@ -755,7 +755,7 @@ _CGB_TrainerCard:
 ;	ld a, c
 ;	hlcoord 18, 1, wAttrmap
 
-	hlcoord 18, 1, wAttrMap
+	hlcoord 18, 1, wAttrmap
 	
 	ld [hl], a
 	call ApplyAttrmap
