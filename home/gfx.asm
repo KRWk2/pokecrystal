@@ -32,16 +32,16 @@ FarCopyBytesDouble_DoubleBankSwitch::
 	rst Bankswitch
 	ret
 
-SafeHDMATransfer: ; unreferenced
-	dec c
-	ldh a, [hBGMapMode]
-	push af
-	xor a
-	ldh [hBGMapMode], a
-	ldh a, [hROMBank]
-	push af
-	ld a, b
-	rst Bankswitch
+;SafeHDMATransfer: ; unreferenced
+;	dec c
+;	ldh a, [hBGMapMode]
+;	push af
+;	xor a
+;	ldh [hBGMapMode], a
+;	ldh a, [hROMBank]
+;	push af
+;	ld a, b
+;	rst Bankswitch
 
 .loop
 ; load the source and target MSB and LSB
@@ -111,9 +111,9 @@ LoadFontsExtra::
 	farcall _LoadFontsExtra2
 	ret
 
-LoadFontsExtra2: ; unreferenced
-	farcall _LoadFontsExtra2
-	ret
+;LoadFontsExtra2: ; unreferenced
+;	farcall _LoadFontsExtra2
+;	ret
 
 DecompressRequest2bpp::
 	push de

@@ -672,7 +672,11 @@ PlaceHLTextAtBC::
 
 DoTextUntilTerminator::
 	ld a, [hli]
-	cp TX_END
+	cp "@"
+	ret z
+	cp "<DONE>"
+	ret z
+	cp "<PROMPT>"
 	ret z
 	call .TextCommand
 	jr DoTextUntilTerminator
