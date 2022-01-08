@@ -38,14 +38,6 @@ INCBIN "data/tilesets/ice_path_metatiles.bin"
 TilesetIcePathColl::
 INCLUDE "data/tilesets/ice_path_collision.asm"
 
-TilesetPlayersRoomGFX::
-INCBIN "gfx/tilesets/players_room.2bpp.lz"
-
-TilesetPlayersRoomMeta::
-INCBIN "data/tilesets/players_room_metatiles.bin"
-
-TilesetPlayersRoomColl::
-INCLUDE "data/tilesets/players_room_collision.asm"
 
 
 SECTION "Tileset Data 2", ROMX
@@ -339,3 +331,12 @@ INCBIN "data/tilesets/traditional_house_metatiles.bin"
 
 TilesetTraditionalHouseColl::
 INCLUDE "data/tilesets/traditional_house_collision.asm"
+
+TilesetPlayersRoomGFX::
+INCBIN "gfx/tilesets/players_room.2bpp.lz"
+
+TilesetPlayersRoomMeta::
+INCBIN "data/tilesets/players_room_metatiles.bin"
+
+TilesetPlayersRoomColl::
+INCLUDE "data/tilesets/players_room_collision.asm"

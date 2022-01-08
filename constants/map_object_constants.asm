@@ -203,32 +203,34 @@ NUM_SPRITEMOVEFN EQU const_value
 
 ; StepTypesJumptable indexes (see engine/overworld/map_objects.asm)
 	const_def
-	const STEP_TYPE_RESET            ; 00
-	const STEP_TYPE_FROM_MOVEMENT    ; 01
-	const STEP_TYPE_NPC_WALK         ; 02
-	const STEP_TYPE_SLEEP            ; 03
-	const STEP_TYPE_STANDING         ; 04
-	const STEP_TYPE_RESTORE          ; 05
-	const STEP_TYPE_PLAYER_WALK      ; 06
-	const STEP_TYPE_CONTINUE_WALK    ; 07
-	const STEP_TYPE_NPC_JUMP         ; 08
-	const STEP_TYPE_PLAYER_JUMP      ; 09
-	const STEP_TYPE_TURN             ; 0a
-	const STEP_TYPE_BUMP             ; 0b
-	const STEP_TYPE_TELEPORT_FROM    ; 0c
-	const STEP_TYPE_TELEPORT_TO      ; 0d
-	const STEP_TYPE_SKYFALL          ; 0e
-	const STEP_TYPE_STRENGTH_BOULDER ; 0f
-	const STEP_TYPE_GOT_BITE         ; 10
-	const STEP_TYPE_ROCK_SMASH       ; 11
-	const STEP_TYPE_RETURN_DIG       ; 12
-	const STEP_TYPE_TRACKING_OBJECT  ; 13
-	const STEP_TYPE_14               ; 14
-	const STEP_TYPE_SCREENSHAKE      ; 15
-	const STEP_TYPE_16               ; 16
-	const STEP_TYPE_17               ; 17
-	const STEP_TYPE_DELETE           ; 18
-	const STEP_TYPE_SKYFALL_TOP      ; 19
+	const STEP_TYPE_RESET            		; 00
+	const STEP_TYPE_FROM_MOVEMENT    		; 01
+	const STEP_TYPE_NPC_WALK         		; 02
+	const STEP_TYPE_SLEEP            		; 03
+	const STEP_TYPE_STANDING         		; 04
+	const STEP_TYPE_RESTORE          		; 05
+	const STEP_TYPE_PLAYER_WALK      		; 06
+	const STEP_TYPE_CONTINUE_WALK    		; 07
+	const STEP_TYPE_NPC_JUMP         		; 08
+	const STEP_TYPE_PLAYER_JUMP      		; 09
+	const STEP_TYPE_TURN             		; 0a
+	const STEP_TYPE_BUMP             		; 0b
+	const STEP_TYPE_TELEPORT_FROM    		; 0c
+	const STEP_TYPE_TELEPORT_TO      		; 0d
+	const STEP_TYPE_SKYFALL          		; 0e
+	const STEP_TYPE_STRENGTH_BOULDER 		; 0f
+	const STEP_TYPE_GOT_BITE         		; 10
+	const STEP_TYPE_ROCK_SMASH       		; 11
+	const STEP_TYPE_RETURN_DIG       		; 12
+	const STEP_TYPE_TRACKING_OBJECT  		; 13
+	const STEP_TYPE_14               		; 14
+	const STEP_TYPE_SCREENSHAKE      		; 15
+	const STEP_TYPE_16               		; 16
+	const STEP_TYPE_17               		; 17
+	const STEP_TYPE_DELETE           		; 18
+	const STEP_TYPE_SKYFALL_TOP      		; 19
+	const STEP_TYPE_NPC_DIAGONAL_STAIRS 	; 1a
+	const STEP_TYPE_PLAYER_DIAGONAL_STAIRS  ; 1b
 NUM_STEP_TYPES EQU const_value
 
 ; ObjectActionPairPointers indexes (see engine/overworld/map_object_action.asm)
@@ -291,13 +293,14 @@ NUM_FACINGS EQU const_value
 
 ; DoPlayerMovement.DoStep arguments (see engine/overworld/player_movement.asm)
 	const_def
-	const STEP_SLOW          ; 0
-	const STEP_WALK          ; 1
-	const STEP_BIKE          ; 2
-	const STEP_LEDGE         ; 3
-	const STEP_ICE           ; 4
-	const STEP_TURN          ; 5
-	const STEP_BACK_LEDGE    ; 6
-	const STEP_WALK_IN_PLACE ; 7
-	const STEP_RUN			 ; 8
+	const STEP_SLOW         	; 0
+	const STEP_WALK         	; 1
+	const STEP_BIKE         	; 2
+	const STEP_LEDGE        	; 3
+	const STEP_ICE           	; 4
+	const STEP_TURN          	; 5
+	const STEP_BACK_LEDGE    	; 6
+	const STEP_WALK_IN_PLACE 	; 7
+	const STEP_RUN			 	; 8
+	const STEP_DIAGONAL_STAIRS  ; 9
 NUM_STEPS EQU const_value
