@@ -243,8 +243,8 @@ Movement_step_resume:
 	add hl, bc
 	ld [hl], STEP_TYPE_SLEEP
 
-;	ld hl, wVramState
-;	res 7, [hl]
+	ld hl, wVramState
+	res 7, [hl]
 	ret
 
 Movement_remove_object:
