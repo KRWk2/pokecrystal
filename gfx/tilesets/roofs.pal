@@ -1,5 +1,4 @@
 
-;	table_width PAL_COLOR_SIZE * 2 * 2, RoofPals
 ; group 0 (unused)
 	RGB 21,21,21, 11,11,11 ; morn/day
 	RGB 21,21,21, 11,11,11 ; nite
@@ -134,5 +133,9 @@
 	RGB 31,14,28, 31,05,21 ; morn/day
 	RGB 14,07,17, 13,00,08 ; nite
 	RGB 25,10,20, 25,03,16 ; eve
+
+; group 27 (Underwater)
+	RGB 31,14,28, 31,05,21 ; morn/day
+	RGB 14,07,17, 13,00,08 ; nite
+	RGB 25,10,20, 25,03,16 ; eve
 	
-;	assert_table_length NUM_MAP_GROUPS + 1
