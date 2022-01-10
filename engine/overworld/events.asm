@@ -1131,6 +1131,8 @@ TryTileCollisionEvent::
 
 .surf
 	farcall TrySurfOW
+	jr c, .done
+	farcall TryDiveOW
 	jr nc, .noevent
 	jr .done
 

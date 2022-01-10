@@ -112,3 +112,4 @@ SECTION "Sprites 3", ROMX
 
 EnbySpriteGFX::                INCBIN "gfx/sprites/enby.2bpp"
 EnbyBikeSpriteGFX::            INCBIN "gfx/sprites/enby_bike.2bpp"
+DiveSpriteGFX::                INCBIN "gfx/sprites/dive.2bpp"

@@ -1045,3 +1045,6 @@ BetaBlank_Blocks: ; unreferenced
 
 GoldenrodDeptStoreRoof_Blocks:
 	INCBIN "maps/GoldenrodDeptStoreRoof.ablk"
+
+Route41Underwater_Blocks:
+	INCBIN "maps/Route41Underwater.ablk"

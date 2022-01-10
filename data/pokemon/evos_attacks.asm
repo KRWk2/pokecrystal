@@ -1167,6 +1167,7 @@ SeelEvosAttacks:
 	db 32, TAKE_DOWN
 	db 37, ICE_BEAM
 	db 48, SAFEGUARD
+	db 53, DIVE
 	db 0 ; no more level-up moves
 
 DewgongEvosAttacks:
@@ -1179,7 +1180,8 @@ DewgongEvosAttacks:
 	db 21, REST
 	db 32, TAKE_DOWN
 	db 43, ICE_BEAM
-	db 60, SAFEGUARD
+	db 54, SAFEGUARD
+	db 60, DIVE
 	db 0 ; no more level-up moves
 
 GrimerEvosAttacks:

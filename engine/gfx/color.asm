@@ -1271,6 +1271,7 @@ LoadMapPals:
 	call FarCopyWRAM
 
 	farcall LoadSpecialNPCPalette
+;	farcall LoadSpecialMapObjectPalette
 
 	ld a, [wEnvironment]
 	cp TOWN
@@ -1319,7 +1320,9 @@ MapObjectPals::
 INCLUDE "gfx/overworld/npc_sprites.pal"
 
 RoofPals:
+;	table_width PAL_COLOR_SIZE * 2 * 2, RoofPals
 INCLUDE "gfx/tilesets/roofs.pal"
+;	assert_table_length NUM_MAP_GROUPS + 1
 
 DiplomaPalettes:
 INCLUDE "gfx/diploma/diploma.pal"

@@ -389,11 +389,64 @@ wAttackMissed::
 ; nonzero for a miss
 	db
 
-wPlayerSubStatus1:: db
-wPlayerSubStatus2:: db
-wPlayerSubStatus3:: db
-wPlayerSubStatus4:: db
-wPlayerSubStatus5:: db
+wPlayerSubStatus1:: ; c668
+; bit
+; 7 in love
+; 6 rollout
+; 5 endure
+; 4 perish song
+; 3 identified
+; 2 protect
+; 1 curse
+; 0 nightmare
+	db
+; Could set this byte to persist after withdraw,
+; and move toxic to here? This would fix toxic
+; becoming regular poison upon switching out.
+wPlayerSubStatus2:: 
+; bit
+; 7
+; 6
+; 5
+; 4
+; 3
+; 2
+; 1
+; 0 curled
+	db
+wPlayerSubStatus3:: ; c66a
+; bit
+; 7 confused
+; 6 flying
+; 5 underground
+; 4 charged
+; 3 flinched
+; 2 in loop
+; 1 rampage
+; 0 bide
+	db
+wPlayerSubStatus4:: ; c66b
+; bit
+; 7 leech seed
+; 6 rage
+; 5 recharge
+; 4 substitute
+; 3 underwater
+; 2 focus energy
+; 1 mist
+; 0 x accuracy
+	db
+wPlayerSubStatus5:: ; c66c
+; bit
+; 7 can't run
+; 6 destiny bond
+; 5 lock-on
+; 4 encored
+; 3 transformed
+; 2
+; 1
+; 0 toxic
+	db
 
 wEnemySubStatus1:: db
 wEnemySubStatus2:: db
@@ -3218,7 +3271,8 @@ wSafariBallsRemaining:: db
 wSafariTimeRemaining:: dw
 
 wPhoneList:: ds CONTACT_LIST_SIZE + 1
-
+;wPhoneList:: ds CONTACT_LIST_SIZE ; dc7c
+; dc86
 	ds 22
 
 wLuckyNumberShowFlag:: db
@@ -3245,7 +3299,10 @@ wBackupWarpNumber:: db
 wBackupMapGroup::   db
 wBackupMapNumber::  db
 
-	ds 3
+wDiveMapGroup:: db
+wDiveMapNumber:: db
+wDiveDeltaX:: db
+wDiveDeltaY:: db
 
 wLastSpawnMapGroup:: db
 wLastSpawnMapNumber:: db

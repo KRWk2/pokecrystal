@@ -24,4 +24,16 @@ for n, 1, NUM_TUTORS + 1
 endr
 	assert_table_length NUM_TM_HM_TUTOR
 
+;	db CUT
+;	db FLY
+;	db SURF
+;	db STRENGTH
+;	db FLASH
+;	db WHIRLPOOL
+;	db WATERFALL
+;	db DIVE
+; Move tutor
+;	db FLAMETHROWER
+;	db THUNDERBOLT
+;	db ICE_BEAM
 	db 0 ; end

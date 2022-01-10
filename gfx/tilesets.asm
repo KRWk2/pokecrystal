@@ -343,6 +343,7 @@ INCLUDE "data/tilesets/players_room_collision.asm"
 
 SECTION "Tileset Data 9", ROMX
 
+;TilesetUnderwaterAttr::
 Tileset0Attr::
 TilesetJohtoAttr::
 INCBIN "data/tilesets/johto_attributes.bin"
@@ -419,6 +420,7 @@ INCBIN "data/tilesets/tower_attributes.bin"
 
 SECTION "Tileset Data 11", ROMX
 
+TilesetUnderwaterAttr::
 TilesetCaveAttr::
 TilesetDarkCaveAttr::
 INCBIN "data/tilesets/cave_attributes.bin"
@@ -455,3 +457,15 @@ INCBIN "data/tilesets/omanyte_word_room_attributes.bin"
 
 TilesetAerodactylWordRoomAttr::
 INCBIN "data/tilesets/aerodactyl_word_room_attributes.bin"
+
+TilesetUnderwaterGFX::
+INCBIN "gfx/tilesets/underwater.2bpp.lz"
+
+TilesetUnderwaterMeta::
+INCBIN "data/tilesets/underwater_metatiles.bin"
+
+TilesetUnderwaterColl::
+INCLUDE "data/tilesets/underwater_collision.asm"
+
+
+;INCLUDE "data/tilesets/underwater_attributes.bin"

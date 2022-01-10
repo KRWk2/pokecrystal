@@ -253,8 +253,8 @@ BattleAnimations::
 	dw BattleAnim_RockSmash
 	dw BattleAnim_Whirlpool
 	dw BattleAnim_BeatUp
+	dw BattleAnim_Dive
 	assert_table_length NUM_ATTACKS + 1
-	dw BattleAnim_252
 	dw BattleAnim_253
 	dw BattleAnim_254
 	dw BattleAnim_SweetScent2
@@ -285,7 +285,6 @@ BattleAnimations::
 	assert_table_length NUM_BATTLE_ANIMS + 1
 
 BattleAnim_0:
-BattleAnim_252:
 BattleAnim_253:
 BattleAnim_254:
 BattleAnim_MirrorMove:
@@ -2040,6 +2039,44 @@ BattleAnim_Dig:
 	anim_wait 32
 .fail
 	anim_bgeffect ANIM_BG_ENTER_MON, $0, BG_EFFECT_USER, $0
+	anim_wait 32
+	anim_ret
+
+BattleAnim_Dive:
+	anim_2gfx ANIM_GFX_SAND, ANIM_GFX_WATER
+	anim_if_param_equal $0, .hit
+	anim_if_param_equal $2, .fail
+	anim_call BattleAnim_TargetObj_2Row
+	anim_bgeffect ANIM_BG_DIG, $0, $1, $1
+	anim_obj ANIM_OBJ_DIVE_2, 72, 104, $0
+	anim_sound 0, 0, SFX_BUBBLEBEAM
+.loop
+	anim_obj ANIM_OBJ_DIVE_1, 56, 104, $0
+	anim_wait 16
+	anim_loop 6, .loop
+	anim_wait 32
+	anim_bgeffect ANIM_BG_HIDE_MON, $0, $1, $0
+	anim_wait 8
+	anim_incbgeffect ANIM_BG_DIG
+	anim_call BattleAnim_ShowMon_0
+	anim_ret
+
+.hit
+	anim_bgeffect ANIM_BG_START_WATER, $0, $0, $0
+	anim_sound 0, 1, SFX_HYDRO_PUMP
+	anim_obj ANIM_OBJ_HYDRO_PUMP, 124, 72, $0
+	anim_obj ANIM_OBJ_HYDRO_PUMP, 140, 72, $0
+	anim_bgeffect ANIM_BG_WATER, $30, $0, $0
+	anim_wait 12
+	anim_obj ANIM_OBJ_HYDRO_PUMP, 132, 72, $0
+	anim_bgeffect ANIM_BG_WATER, $1c, $0, $0
+	anim_wait 24
+	anim_bgeffect ANIM_BG_WATER, $8, $0, $0
+	anim_wait 24
+	anim_bgeffect ANIM_BG_END_WATER, $0, $0, $0
+	anim_wait 16
+.fail
+	anim_bgeffect ANIM_BG_ENTER_MON, $0, $1, $0
 	anim_wait 32
 	anim_ret
 

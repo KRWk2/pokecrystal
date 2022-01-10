@@ -290,6 +290,8 @@ HM01 EQU const_value
 	add_hm FLASH        ; f7
 	add_hm WHIRLPOOL    ; f8
 	add_hm WATERFALL    ; f9
+;   add_hm ROCK_CLIMB   ; fa
+	add_hm DIVE		    ; fa ; fb
 NUM_HMS EQU __tmhm_value__ - NUM_TMS - 1
 
 add_mt: MACRO

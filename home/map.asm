@@ -165,6 +165,7 @@ _LoadMetatilesOrAttributes:
 	; Set hl to the address of the current metatile data ([wTilesetBlocksAddress] + (a) tiles).
 	ld l, a
 	ld h, 0
+;	add hl, hl ; 5 seems like too many git...
 	add hl, hl
 	add hl, hl
 	add hl, hl
