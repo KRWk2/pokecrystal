@@ -184,8 +184,7 @@ NewBarkTown_SilverShovesYouOutMovement:
 
 NewBarkTown_SilverReturnsToTheShadowsMovement:
 	step RIGHT
-	; step_end causes moving artifacts, so we use:
-	step_resume
+	step_end
 
 Text_GearIsImpressive:
 	text "Wow, your #GEAR"

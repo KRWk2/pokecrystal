@@ -129,9 +129,10 @@ step_end: MACRO
 	db movement_step_end
 ENDM
 
-	const movement_step_resume
-step_resume: MACRO
-	db movement_step_resume ; $48
+	const movement_step_48 ; $48
+step_48: MACRO
+	db movement_step_48
+	db \1 ; ???
 ENDM
 
 	const movement_remove_object ; $49
@@ -223,9 +224,4 @@ skyfall_top: MACRO
 	db movement_skyfall_top
 ENDM
 
-	const movement_run_step
-run_step: MACRO
-	db movement_run_step + \1 ; $5a
-ENDM
-
-NUM_MOVEMENT_CMDS EQU const_value + 3
+NUM_MOVEMENT_CMDS EQU const_value

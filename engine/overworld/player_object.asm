@@ -533,7 +533,7 @@ TrainerWalkToPlayer:
 	call DecrementMovementBufferCount
 
 .TerminateStep:
-	ld a, movement_step_resume
+	ld a, movement_step_end
 	call AppendToMovementBuffer
 	ret
 
@@ -585,7 +585,7 @@ SurfStartStep:
 	call InitMovementBuffer
 	call .GetMovementData
 	call AppendToMovementBuffer
-	ld a, movement_step_resume
+	ld a, movement_step_end
 	call AppendToMovementBuffer
 	ret
 

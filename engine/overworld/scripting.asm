@@ -34,8 +34,7 @@ WaitScript:
 	dec [hl]
 	ret nz
 
-;	farcall UnfreezeAllObjects
-	farcall ReleaseAllMapObjects
+	farcall UnfreezeAllObjects
 
 	ld a, SCRIPT_READ
 	ld [wScriptMode], a
@@ -49,8 +48,7 @@ WaitScriptMovement:
 	bit 7, [hl]
 	ret nz
 
-;	farcall UnfreezeAllObjects
-	farcall ReleaseAllMapObjects
+	farcall UnfreezeAllObjects
 
 	ld a, SCRIPT_READ
 	ld [wScriptMode], a
