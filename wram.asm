@@ -1240,7 +1240,7 @@ wc983:: dw
 wc985:: db
 wc986:: db
 wc987:: db
-wc988:: db
+wMobileAPIIndex:: db
 wc989:: db
 wc98a:: db
 wc98b:: db
@@ -1675,6 +1675,7 @@ wRequested1bppSize:: db
 wRequested1bppSource:: dw
 wRequested1bppDest:: dw
 
+wMenuMetadata::
 wWindowStackPointer:: dw
 wMenuJoypad:: db
 wMenuSelection:: db
@@ -1682,8 +1683,8 @@ wMenuSelectionQuantity:: db
 wWhichIndexSet:: db
 wScrollingMenuCursorPosition:: db
 wWindowStackSize:: db
-
 	ds 8
+wMenuMetadataEnd::
 
 ; menu header
 wMenuHeader::
@@ -1731,6 +1732,7 @@ wMenuData_ScrollingMenuFunction3:: ds 3
 ENDU
 wMenuDataEnd::
 
+wMoreMenuData::
 w2DMenuData::
 w2DMenuCursorInitY:: db
 w2DMenuCursorInitX:: db
@@ -1755,8 +1757,8 @@ wMenuCursorY:: db
 wMenuCursorX:: db
 wCursorOffCharacter:: db
 wCursorCurrentTile:: dw
-
 	ds 3
+wMoreMenuDataEnd::
 
 wOverworldDelay:: db
 wTextDelayFrames:: db
