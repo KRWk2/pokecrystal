@@ -4925,7 +4925,7 @@ CalcPlayerStats:
 	ld de, wPlayerStats
 	ld bc, wBattleMonAttack
 
-	ld a, 5
+	ld a, NUM_BATTLE_STATS
 	call CalcBattleStats
 
 	ld hl, BadgeStatBoosts
@@ -4946,7 +4946,7 @@ CalcEnemyStats:
 	ld de, wEnemyStats
 	ld bc, wEnemyMonAttack
 
-	ld a, 5
+	ld a, NUM_BATTLE_STATS
 	call CalcBattleStats
 
 	call BattleCommand_SwitchTurn
